@@ -8,11 +8,7 @@
 
         preload({ params, query }) {
 
-            const { slug } = params;
-
-            console.log(slug);
-
-            return this.fetch("test?pokemon=" + slug)
+            return this.fetch("test")
                 .then(r => r.json())
                 .then(r => console.log(r));
         }
