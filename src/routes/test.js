@@ -1,10 +1,5 @@
 import fetch from 'node-fetch';
 
-const contents = JSON.stringify({
-		title: 'aaaa',
-		slug: 'bbbb'
-});
-
 export function get(req, res) {
 
     res.writeHead(200, {
@@ -13,9 +8,5 @@ export function get(req, res) {
 
     fetch('https://pokeapi.co/api/v2/pokemon/ditto')
         .then(r => r.json())
-        .then(r => {
-            console.log(r)
-        });
-
-    res.end(contents);
+        .then(r=>res.end(JSON.stringify(r)))
 }
