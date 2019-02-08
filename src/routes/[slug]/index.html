@@ -1,0 +1,25 @@
+<svelte:head>
+	<title>Pregnancy+ Web</title>
+</svelte:head>
+
+<script>
+
+	export default {
+
+        preload({ params, query }) {
+
+            const { slug } = params;
+
+            console.log(slug);
+
+            return this.fetch("test?slug=" + slug)
+                .then(r => r.json())
+                .then(r => r);
+        },
+
+        oncreate() {
+
+            console.log(this.get());
+        }
+	};
+</script>
